@@ -1,29 +1,23 @@
-import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { ConnectedRouter } from 'connected-react-router';
+import { connect } from 'react-redux';
+import { fetchUser } from './actions/authentication';
 
 import Routes from './Routes';
 
-import reactLogo from './assets/React-icon.png';
+class App extends Component {
+  componentWillMount() {
+    this.props.fetchUser();
+  }
 
-const App = () => (
-  <BrowserRouter>
-    <main className="container">
-      <div>
-        <h1>hello world!</h1>
-        <img className="container__image" alt="react logo" src={reactLogo} />
-        <p>If you see this everything is working!</p>
-      </div>
-      <ul className="left">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
-      <Routes />
-    </main>
-  </BrowserRouter>
-);
+  render() {
+    return (
+      <ConnectedRouter history={this.props.history}>
+        <Routes />
+      </ConnectedRouter>
+    );
+  }
+}
 
-export default App;
+
+export default connect(null, { fetchUser })(App);
