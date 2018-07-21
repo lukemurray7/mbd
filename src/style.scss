@@ -1,14 +1,28 @@
-.container {
-    margin: auto;
-    text-align: center;
-    max-width: 600px;
-
-    &__image {
-        width: 100px;
-        height: auto;
-    }
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('./assets/fonts/poppins/Poppins-Regular.ttf');
 }
 
-.left {
-    text-align: left;
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('./assets/fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('./assets/fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('./assets/fonts/poppins/Poppins-SemiBold.ttf');
+}
+
+
+body {
+  background-color: #F2F2F2;
+  font-family: Poppins-Regular;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }

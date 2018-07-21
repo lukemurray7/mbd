@@ -37,7 +37,7 @@ module.exports = {
         loader: 'style-loader!css-loader!sass-loader',
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif|ttf|svg)$/i,
         loader: 'url-loader',
         options: {
           limit: 10000,
