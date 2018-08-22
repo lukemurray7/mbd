@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => (
+const About = () => console.log('awd') || (
   <div>
     <h2>About Page</h2>
   </div>

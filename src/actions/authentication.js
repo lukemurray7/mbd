@@ -21,7 +21,10 @@ export const fetchUser = () => (dispatch) => {
 export const signIn = () => () => {
   AUTH
     .signInWithPopup(GOOGLE_AUTH)
-    .then(() => {})
+    .then((user) => {
+      console.log('hello');
+      console.log(user);
+    })
     .catch((error) => {
       console.log(error);
     });
