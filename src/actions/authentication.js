@@ -1,8 +1,11 @@
 import { AUTH, GOOGLE_AUTH } from '../config/firebase';
-import { FETCH_USER } from './action-constants';
+import { FETCH_USER, FETCH_USER_LOADING } from './action-constants';
 
 
 export const fetchUser = () => (dispatch) => {
+  dispatch({
+    type: FETCH_USER_LOADING,
+  });
   AUTH.onAuthStateChanged((user) => {
     if (user) {
       dispatch({

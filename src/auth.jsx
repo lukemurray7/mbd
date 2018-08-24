@@ -3,8 +3,22 @@ import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { LoginPage } from './containers';
+import { LoginPage, InfoPage } from './containers';
 import { fetchUser } from './actions/authentication';
+
+const isAllowed = (path) => {
+  switch (path) {
+    case '/info': {
+      return true;
+    }
+    case '/login': {
+      return true;
+    }
+    default: {
+      return false;
+    }
+  }
+};
 
 export default (ComposedComponent) => {
   class Authentication extends React.Component {
@@ -13,14 +27,9 @@ export default (ComposedComponent) => {
         this.props.fetchUser();
       }
     }
-    componentWillUpdate(nextProps) {
-      if(nextProps.user !== this.props.user) {
-        
-      }
-    }
 
     render() {
-      if (!this.props.authenticated && this.props.location.pathname !== '/login') {
+      if (!this.props.authenticated && !isAllowed(this.props.location.pathname)) {
         return <Redirect to="/login" />;
       }
       if (this.props.authenticated && this.props.location.pathname === '/login') {
@@ -30,6 +39,7 @@ export default (ComposedComponent) => {
       return (
         <Switch>
           <Route path="/login" component={LoginPage} />
+          <Route path="/info" component={InfoPage} />
           <Route component={ComposedComponent} />
         </Switch>
       );

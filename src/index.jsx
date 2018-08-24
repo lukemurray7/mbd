@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { App } from './containers';
 import reducer from './reducers/root-reducer';
 import auth from './auth';
 
