@@ -65,6 +65,7 @@
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "@material-ui/icons": "^2.0.3",
+    "classnames": "^2.2.6",
     "connected-react-router": "^4.3.0",
     "firebase": "5.2.0",
     "history": "^4.7.2",

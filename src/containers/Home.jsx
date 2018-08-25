@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import fetchData from '../actions';
 import { signOut } from '../actions/authentication';
 // import addRecipe from '../../actions/add-recipe';
+import Section from '../components/section/section';
 
 const Home = ({ data, fetchBets, logout }) => {
   if (!data) {
     fetchBets();
   }
+
   return (
-    <div>
-      <h2>Home Page</h2>
-      <button onClick={logout}>log out</button>
-    </div>
+    <Section>
+      HELLO
+    </Section>
   );
 };
 
