@@ -4,7 +4,11 @@ const styles = theme => ({
   },
   main: {
     zIndex: theme.zIndex.drawer + 1,
-    height: 60,
+    height: 50,
+    boxShadow: 'none',
+  },
+  toolbar: {
+    minHeight: 50,
   },
 });
 

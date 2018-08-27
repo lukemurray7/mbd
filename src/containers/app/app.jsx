@@ -1,12 +1,17 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
+import { Route, Switch } from 'react-router-dom';
 
 import AppBar from '../../components/app-bar/app-bar';
 import Drawer from '../../components/drawer/drawer';
 
-import Routes from '../../Routes';
+import routes from '../../constants/routes';
 import styles from './app-styles';
+import NavbarContent from './nav-bar-content';
+
+const getRoutes = () =>
+  routes.map(route => <Route key={route.url} exact path={route.url} component={route.component} />);
 
 class App extends React.Component {
   constructor() {
@@ -39,23 +44,16 @@ class App extends React.Component {
     });
   }
 
+
   render() {
     const { classes } = this.props;
     const { navOpen } = this.state;
-
-    const drawerContent = (
-      <div style={{ width: 240 }}>
-        1
-        2
-        3
-      </div>
-    );
 
     return (
       <div className={classes.root}>
         <AppBar toggleNav={this.handeNavOpen} />
         <div className={classes.main}>
-          <Drawer drawerContent={drawerContent} open={navOpen} />
+          <Drawer drawerContent={(<NavbarContent navOpen={navOpen} />)} open={navOpen} />
           <div className={classes.toolbar} />
           <div className={classNames(classes.content, classes.contentLeft, {
             [classes.contentShift]: navOpen,
@@ -63,7 +61,9 @@ class App extends React.Component {
           })}
           >
             <div className={classes.pageContent}>
-              <Routes />
+              <Switch>
+                {getRoutes()}
+              </Switch>
             </div>
           </div>
         </div>

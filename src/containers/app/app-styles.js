@@ -22,12 +22,8 @@ const styles = theme => ({
     'overflow-y': 'scroll',
     flexShrink: 1,
     maxHeight: 'calc(100vh - 120px)',
-    marginLeft: 240,
     marginTop: 60,
     padding: 10,
-  },
-  contentLeft: {
-    marginLeft: -240,
   },
   contentShift: {
     transition: theme.transitions.create('margin', {

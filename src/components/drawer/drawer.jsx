@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
 
 import Drawer from '@material-ui/core/Drawer';
 import styles from './drawer-styles';
@@ -14,7 +15,7 @@ const DrawerComponent = ({
     <Drawer
       variant="permanent"
       classes={{
-        paper: classes.drawerPaper,
+        paper: classNames(classes.drawerPaper, !open && classes.drawerPaperClose),
       }}
       open={open}
     >

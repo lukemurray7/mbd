@@ -44,9 +44,8 @@ class AppBarComponent extends React.Component {
 
     return (
       <AppBar position="absolute" className={classes.main}>
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <IconButton
-            className={classes.menuButton}
             color="inherit"
             aria-label="Menu"
             onClick={() => toggleNav()}
