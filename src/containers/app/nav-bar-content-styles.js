@@ -8,8 +8,6 @@ const styles = () => ({
     margin: 'auto',
     paddingLeft: 12,
     display: 'flex',
-    marginTop: 10,
-    marginBottom: 10,
     paddingTop: 20,
     paddingBottom: 20,
     fontFamily: 'Poppins-Medium',
@@ -23,12 +21,15 @@ const styles = () => ({
     marginLeft: 20,
   },
   divider: {
-    marginBottom: 40,
+    marginBottom: 10,
   },
   sectionName: {
-    fontFamily: 'Poppins-SemiBold',
-    marginLeft: 20,
-    marginBottom: 100,
+    fontFamily: 'Poppins-Regular',
+    margin: 0,
+    marginLeft: 12,
+    color: 'grey',
+    height: 12,
+    marginBottom: 20,
   },
   icon: {
     color: 'grey',
