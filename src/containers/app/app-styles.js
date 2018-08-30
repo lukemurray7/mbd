@@ -18,11 +18,10 @@ const styles = theme => ({
     }),
   },
   pageContent: {
-    'overflow-x': 'hidden',
     'overflow-y': 'scroll',
     flexShrink: 1,
-    maxHeight: 'calc(100vh - 120px)',
-    marginTop: 60,
+    maxHeight: 'calc(100vh - 50px)',
+    marginTop: 50,
     padding: 10,
   },
   contentShift: {

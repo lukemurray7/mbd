@@ -10,6 +10,8 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+import getYAxisValue from './helpers/get-axis-values';
+
 const data = [
   { month: 'Jun', profit: 400 },
   { month: 'Jul', profit: 750 },
@@ -31,22 +33,9 @@ const data = [
   { month: 'Nov', profit: 13020 },
 ];
 
-const getYAxisLabel = (num) => {
-  switch (true) {
-    case (num > 999): {
-      const numStr = num.toString();
-      return `${numStr.slice(0, 1)}.${numStr.slice(1, 2)}k`;
-    }
-    default: {
-      return num;
-    }
-  }
-};
-
 const SimpleLineChart = () => {
-  console.log(getYAxisLabel(500), getYAxisLabel(1250));
   return (
-    <ResponsiveContainer width="100%" height="50%">
+    <ResponsiveContainer width="100%" height="100%">
       <LineChart
         data={data}
       >
@@ -54,7 +43,7 @@ const SimpleLineChart = () => {
         <YAxis
           width={30}
           type="number"
-          tickFormatter={num => getYAxisLabel(num)}
+          tickFormatter={num => getYAxisValue(num)}
           tickSize={3}
         />
         <CartesianGrid strokeDasharray="3 3" />
