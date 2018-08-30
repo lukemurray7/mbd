@@ -14,6 +14,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuComponent from '../menu/menu-component';
+import Logo from '../logo/logo';
 import styles from './app-bar-styles';
 
 class AppBarComponent extends React.Component {
@@ -52,8 +53,9 @@ class AppBarComponent extends React.Component {
           >
             <MenuIcon />
           </IconButton>
+          {/* <Logo /> */}
           <Typography variant="title" color="inherit" className={classes.flex}>
-            Matched Betting Dashboard
+            MBD
           </Typography>
           <div className={classes.buttons}>
             <Hidden only={['sm', 'xs']}>

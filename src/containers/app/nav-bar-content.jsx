@@ -36,7 +36,7 @@ const generateNavSections = (open, classes) => {
     (
       <React.Fragment>
         <div>
-          {/* <p className={classes.sectionName}>{open ? section : ''}</p> */}
+          <p className={classes.sectionName}>{open ? section : ''}</p>
           {items(section).map(item => generateNavItem(item, open, classes))}
         </div>
         <Divider className={classes.divider} />
