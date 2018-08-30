@@ -4,17 +4,24 @@ import Section from '../../../components/section/section';
 import SimpleLineChart from '../../../components/line-chart/line-chart';
 
 const styles = () => ({
+  test: {
+    width: '100%',
+    height: '100%',
+  },
   chart: {
-    width: '700px',
-    height: '400px',
+    height: '500px',
+    width: '100%',
   },
 });
 
 const TotalProfit = ({ classes }) =>
   (
-    <Section>
+    <Section className={classes.section}>
+      <h3>Total Profit</h3>
       <div className={classes.chart}>
-        <SimpleLineChart />
+        <div className={classes.test}>
+          <SimpleLineChart />
+        </div>
       </div>
     </Section>
   );

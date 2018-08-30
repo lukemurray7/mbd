@@ -11,34 +11,54 @@ import {
 } from 'recharts';
 
 const data = [
-  { month: 'Jun', profit: 2400 },
-  { month: 'Jul', profit: 1398 },
-  { month: 'Aug', profit: 9800 },
-  { month: 'Sep', profit: 3908 },
-  { month: 'Oct', profit: 4800 },
-  { month: 'Nov', profit: 3800 },
+  { month: 'Jun', profit: 400 },
+  { month: 'Jul', profit: 750 },
+  { month: 'Aug', profit: 1200 },
+  { month: 'Sep', profit: 2050 },
+  { month: 'Oct', profit: 3250 },
+  { month: 'Nov', profit: 3250 },
   { month: 'Dec', profit: 4300 },
+  { month: 'Jan', profit: 5300 },
+  { month: 'Feb', profit: 5400 },
+  { month: 'Mar', profit: 5500 },
+  { month: 'Apr', profit: 8300 },
+  { month: 'May', profit: 9200 },
+  { month: 'Jun', profit: 10000 },
+  { month: 'Jul', profit: 10530 },
+  { month: 'Aug', profit: 11200 },
+  { month: 'Sep', profit: 12000 },
+  { month: 'Oct', profit: 12500 },
+  { month: 'Nov', profit: 13020 },
 ];
 
+const getYAxisLabel = (num) => {
+  switch (true) {
+    case (num > 999): {
+      const numStr = num.toString();
+      return `${numStr.slice(0, 1)}.${numStr.slice(1, 2)}k`;
+    }
+    default: {
+      return num;
+    }
+  }
+};
+
 const SimpleLineChart = () => {
+  console.log(getYAxisLabel(500), getYAxisLabel(1250));
   return (
-    <ResponsiveContainer width="700" height="100%">
+    <ResponsiveContainer width="100%" height="50%">
       <LineChart
         data={data}
-        width={600}
-        height={300}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
       >
-        <XAxis dataKey="month" />
-        <YAxis />
+        <XAxis dataKey="month" interval={4} />
+        <YAxis
+          width={30}
+          type="number"
+          tickFormatter={num => getYAxisLabel(num)}
+          tickSize={3}
+        />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
-        <Legend />
         <Line type="monotone" dataKey="profit" stroke="#8884d8" activeDot={{ r: 8 }} />
       </LineChart>
     </ResponsiveContainer>
