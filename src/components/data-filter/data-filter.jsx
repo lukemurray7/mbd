@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Icon from '@material-ui/core/Icon';
 import { withStyles } from '@material-ui/core';
 
-import TextInput from '../text-input/text-input';
+import MaterialTextInput from '../text-input/material-text-input';
 
 const styles = () => ({
   root: {
@@ -49,7 +49,7 @@ class DataFilter extends Component {
   render() {
     return (
       <div className={this.props.classes.root}>
-        <TextInput
+        <MaterialTextInput
           placeholder="Search"
           value={this.state.filterValue}
           onChange={this.onFilterChange}

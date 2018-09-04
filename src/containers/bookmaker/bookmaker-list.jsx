@@ -5,6 +5,9 @@ import Table from '../../components/table/table';
 import TableSection from '../../components/section/table-section';
 import SectionHeader from '../../components/section/header-section';
 import DataFilter from '../../components/data-filter/data-filter';
+import MaterialButton from '../../components/button/material-button';
+import Modal from '../../components/modal/modal';
+import AddBookmakerContent from './modal-content';
 
 
 import BOOKMAKER_TABLE from './constants/table-fields';
@@ -41,13 +44,22 @@ class BookmakersList extends React.Component {
     super();
     this.state = {
       filteredData: null,
+      isModalOpen: false,
     };
+
     this.onDataFilter = this.onDataFilter.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   onDataFilter(filteredData) {
     this.setState({
       filteredData,
+    });
+  }
+
+  toggleModal() {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen,
     });
   }
 
@@ -62,21 +74,40 @@ class BookmakersList extends React.Component {
           <DataFilter data={fakeData} onChange={this.onDataFilter} />
         </div>
       ),
+      (
+        <MaterialButton
+          text="Add"
+          icon="add"
+          onClick={() => this.toggleModal()}
+        />
+      ),
     ];
   }
 
   render() {
-    return (
-      <TableSection
-        title="Bookmakers"
-        headerControls={this.renderRightHeaderContent()}
+    const modal = (
+      <Modal
+        title="Add Bookmaker"
+        open={this.state.isModalOpen}
       >
-        <Table
-          columns={BOOKMAKER_TABLE}
-          data={this.state.filteredData || []}
-          rowKey="bookmaker"
-        />
-      </TableSection>
+        {AddBookmakerContent}
+      </Modal>
+    );
+
+    return (
+      <React.Fragment>
+        <TableSection
+          title="Bookmakers"
+          headerControls={this.renderRightHeaderContent()}
+        >
+          <Table
+            columns={BOOKMAKER_TABLE}
+            data={this.state.filteredData || []}
+            rowKey="bookmaker"
+          />
+        </TableSection>
+        {modal}
+      </React.Fragment>
     );
   }
 }
