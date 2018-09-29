@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  LineChart,
+  AreaChart,
   Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
+  Area,
   ResponsiveContainer,
 } from 'recharts';
 
@@ -36,7 +36,7 @@ const data = [
 const SimpleLineChart = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart
+      {/* <LineChart
         data={data}
       >
         <XAxis dataKey="month" interval={4} />
@@ -49,7 +49,16 @@ const SimpleLineChart = () => {
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Line type="monotone" dataKey="profit" stroke="#8884d8" activeDot={{ r: 8 }} />
-      </LineChart>
+      </LineChart> */}
+      <AreaChart
+        data={data}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="month" />
+        <YAxis />
+        <Tooltip />
+        <Area type='monotone' dataKey='profit' stroke='#8884d8' fill='#8884d8' />
+      </AreaChart>
     </ResponsiveContainer>
   );
 };

@@ -1,7 +1,7 @@
 import TotalProfit from '../containers/dashboard/profits/total-profit';
 import BetBreakdown from '../containers/dashboard/profits/bet-breakdown';
 import BookmakersList from '../containers/bookmaker/bookmaker-list';
-import CurrentBetsPage from '../containers/bets/current-bets-page';
+import CurrentBetsPage from '../containers/bets/bets-page/bets-page';
 import BetsTodoPage from '../containers/bets/bets-todo';
 import CalculatorPage from '../containers/bets/calculator-page';
 

@@ -1,16 +1,14 @@
 import React from 'react';
-import { withData, withStyles } from '@material-ui/core/styles';
-import Section from '../../components/section/section';
-import Table from '../../components/table/table';
-import TableSection from '../../components/section/table-section';
-import SectionHeader from '../../components/section/header-section';
-import DataFilter from '../../components/data-filter/data-filter';
-import MaterialButton from '../../components/button/material-button';
-import Modal from '../../components/modal/modal';
+import { withStyles } from '@material-ui/core/styles';
+import Table from '../../../components/table/table';
+import TableSection from '../../../components/section/table-section';
+import DataFilter from '../../../components/data-filter/data-filter';
+import MaterialButton from '../../../components/button/material-button';
+import Modal from '../../../components/modal/modal';
 import AddBookmakerContent from './modal-content';
 
 
-import BOOKMAKER_TABLE from './constants/table-fields';
+import BETS_PAGE_CONTENT from './constants/table-fields';
 
 const styles = () => ({
   createButton: {
@@ -39,7 +37,7 @@ const fakeData = [
   },
 ];
 
-class BookmakersList extends React.Component {
+class BetsPage extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -87,7 +85,7 @@ class BookmakersList extends React.Component {
   render() {
     const modal = (
       <Modal
-        title="Add Bookmaker"
+        title="Add Bet"
         open={this.state.isModalOpen}
       >
         <AddBookmakerContent onClose={this.toggleModal} />
@@ -97,13 +95,13 @@ class BookmakersList extends React.Component {
     return (
       <React.Fragment>
         <TableSection
-          title="Bookmakers"
+          title="Current Bets"
           headerControls={this.renderRightHeaderContent()}
         >
           <Table
-            columns={BOOKMAKER_TABLE}
+            columns={BETS_PAGE_CONTENT}
             data={this.state.filteredData || []}
-            rowKey="bookmaker"
+            rowKey="id"
           />
         </TableSection>
         {modal}
@@ -112,4 +110,4 @@ class BookmakersList extends React.Component {
   }
 }
 
-export default withStyles(styles)(BookmakersList);
+export default withStyles(styles)(BetsPage);

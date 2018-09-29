@@ -8,6 +8,7 @@ import Icon from '@material-ui/core/Icon';
 const styles = theme => ({
   margin: {
     margin: theme.spacing.unit,
+    width: '90%',
   },
 });
 
@@ -19,12 +20,14 @@ const MaterialTextField = (props) => {
       id="material-textfield"
       label={props.label}
       value={props.value}
+      type={props.type}
+      placeholder={props.placeholder}
       onChange={event => props.onChange(event.target.value)}
-      InputProps={{
+      InputProps={props.icon && {
         startAdornment: (
           <InputAdornment position="start">
             <Icon>
-              search
+              {props.icon}
             </Icon>
           </InputAdornment>
         ),

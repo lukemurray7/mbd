@@ -4,23 +4,24 @@ import MaterialModal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
+const styles = () => ({
   modal: {
     position: 'fixed',
-    top: '50%',
+    top: '35%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
   },
   modalTitle: {
+    backgroundColor: '#4054B2',
+    paddingBottom: 20,
     marginBottom: 20,
-    fontSize: 16,
-    color: 'black',
+    fontSize: 20,
+    color: 'white',
+    padding: 20,
   },
   modalContent: {
     width: '100%',
-    backgroundColor: theme.palette.common.white,
-    boxShadow: theme.shadows[5],
-    padding: theme.defaultPadding,
+    backgroundColor: 'white',
   },
 });
 

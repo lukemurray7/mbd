@@ -53,9 +53,7 @@ class DataFilter extends Component {
           placeholder="Search"
           value={this.state.filterValue}
           onChange={this.onFilterChange}
-          fullWidth={false}
-          prefix={<Icon>search</Icon>}
-          {...this.props.inputProps}
+          icon="search"
         />
       </div>
     );

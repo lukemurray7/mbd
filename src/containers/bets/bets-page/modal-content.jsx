@@ -1,8 +1,8 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
-import MaterialTextInput from '../../components/text-input/material-text-input';
-import ButtonGroup from '../../components/button-group/button-group';
+import MaterialTextInput from '../../../components/text-input/material-text-input';
+import ButtonGroup from '../../../components/button-group/button-group';
 
 const styles = () => ({
   main: {
@@ -39,7 +39,7 @@ const getWidth = (width) => {
   }
 };
 
-class AddBookmakerContent extends React.Component {
+class AddBetsContent extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -96,8 +96,7 @@ class AddBookmakerContent extends React.Component {
           <div className={classes.input}>
             <MaterialTextInput
               value={this.state.name}
-              label="Bookmaker Name"
-              placeholder="Type name..."
+              labeAddBetsContent              placeholder="Type name..."
               onChange={value => this.handleChange(value, 'name')}
             />
           </div>
@@ -140,4 +139,4 @@ class AddBookmakerContent extends React.Component {
   }
 }
 
-export default withStyles(styles)(AddBookmakerContent);
+export default withStyles(styles)(AddBetsContent);
