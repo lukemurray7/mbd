@@ -23,12 +23,15 @@ const MaterialTextField = (props) => {
       type={props.type}
       placeholder={props.placeholder}
       onChange={event => props.onChange(event.target.value)}
-      InputProps={props.icon && {
-        startAdornment: (
+      InputProps={props.inputAdorn && {
+        startAdornment: props.position === 'start' && (
           <InputAdornment position="start">
-            <Icon>
-              {props.icon}
-            </Icon>
+            {props.adornText}
+          </InputAdornment>
+        ),
+        endAdornment: props.position === 'end' && (
+          <InputAdornment position="end">
+            {props.adornText}
           </InputAdornment>
         ),
       }}

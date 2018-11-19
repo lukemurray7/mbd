@@ -33,7 +33,7 @@ class SelectComponent extends React.Component {
 
     return (
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="age-simple">{label}</InputLabel>
+        <InputLabel>{label}</InputLabel>
         <Select
           value={value}
           onChange={handleChange}
